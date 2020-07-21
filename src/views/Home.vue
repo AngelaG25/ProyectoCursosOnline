@@ -33,7 +33,7 @@
         </form>
       </div>
     </nav>
-<!-- muestra de los cursos disponibles para el usuarios-->
+<!-- muestra de los cursos disponibles-->
       <div class="jumbotron">
         <div class="container">
           <h1 class="display-3">Cursos online</h1>
