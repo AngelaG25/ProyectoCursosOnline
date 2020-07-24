@@ -4,10 +4,11 @@
       <router-link to="/" class="btn btn-primary">Inscribir Curso</router-link>
     </div>
 
-    <div class="container">
+    <div class="container text-justify col-md-7">
       <h1>{{ recepieSelected.title }}</h1>
       <br />
       <p>{{ recepieSelected.content }}</p>
+      <small class="text-muted">{{ recepieSelected.category }}</small>
     </div>
   </div>
 </template>
@@ -19,7 +20,7 @@ export default {
   props: ["id"],
   data() {
     return {
-      recepieSelected: {},
+      recepieSelected: {}
     };
   },
   created() {
@@ -28,6 +29,6 @@ export default {
         this.recepieSelected = r;
       }
     }
-  },
+  }
 };
 </script>

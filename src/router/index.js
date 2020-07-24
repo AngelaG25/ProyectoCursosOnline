@@ -1,7 +1,9 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import Home from "../views/Home.vue";
+import Home from "../views/Home1.vue";
 
+const homeindex = () => import("@/views/index.vue");
+const Login = () => import("@/views/login.vue");
 const CursoDetails = () => import("@/views/Cursos.vue");
 
 Vue.use(VueRouter);
@@ -9,19 +11,29 @@ Vue.use(VueRouter);
 const routes = [
   {
     path: "/",
+    name: "HIndex",
+    component: homeindex
+  },
+  {
+    path: "/logUser/log",
+    name: "LoginUser",
+    component: Login
+  },
+  {
+    path: "/home",
     name: "Home",
-    component: Home,
+    component: Home
   },
   {
     path: "/cursos/:id",
     name: "RecepieContent",
     props: true,
-    component: CursoDetails,
-  },
+    component: CursoDetails
+  }
 ];
 
 const router = new VueRouter({
-  routes,
+  routes
 });
 
 export default router;

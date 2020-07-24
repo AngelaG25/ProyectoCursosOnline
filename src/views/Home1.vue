@@ -52,8 +52,8 @@
             placeholder="Search"
             aria-label="Search"
           />
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
-            Search
+          <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">
+            BUSCAR
           </button>
         </form>
       </div>
@@ -74,18 +74,29 @@
         </p>
       </div>
     </div>
-    <div class="container">
-      <div
-        v-for="recepie in recepies"
-        :key="recepie.id"
-        class="recepie-container"
-      >
-        <recepie-card
-          :id="recepie.id"
-          :title="recepie.title"
-          :description="recepie.description"
-          :category="recepie.category"
-        />
+    <section class="page-section">
+      <div class="album py-5 bg-light">
+        <div class="container">
+          <div class="row">
+            <div
+              class="card-body col-md-4 p-4 card mb-4 shadow-sm"
+              v-for="recepie in recepies"
+              :key="recepie.id"
+            >
+              <recepie-card
+                :id="recepie.id"
+                :title="recepie.title"
+                :description="recepie.description"
+                :category="recepie.category"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div class="bg-secondary py-4 text-center text-white">
+      <div class="container">
+        <small>Copyright © 2020</small>
       </div>
     </div>
   </div>
