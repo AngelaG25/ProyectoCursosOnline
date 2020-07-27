@@ -9,23 +9,27 @@
       />
 
       <h1 class="h3 mb-3 font-weight-normal">Inicio de Sesión</h1>
-      <label for="inputEmail" class="sr-only">Correo</label>
-      <input
-        type="email"
-        id="inputEmail"
-        class="form-control"
-        placeholder="Correo"
-        required
-        autofocus
-      />
-      <label for="inputPassword" class="sr-only">Contraseña</label>
-      <input
-        type="password"
-        id="inputPassword"
-        class="form-control"
-        placeholder="Contraseña"
-        required
-      />
+      <div class="col-md-12 mb-3">
+        <label for="inputEmail" class="sr-only">Correo</label>
+        <input
+          type="email"
+          id="inputEmail"
+          class="form-control"
+          placeholder="Correo"
+          required
+          autofocus
+        />
+      </div>
+      <div class="col-md-12 mb-3">
+        <label for="inputPassword" class="sr-only">Contraseña</label>
+        <input
+          type="password"
+          id="inputPassword"
+          class="form-control"
+          placeholder="Contraseña"
+          required
+        />
+      </div>
       <div class="checkbox mb-3">
         <label>
           <input type="checkbox" value="remember-me" /> Permanecer conectado

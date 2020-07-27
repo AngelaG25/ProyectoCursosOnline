@@ -74,21 +74,23 @@
         </p>
       </div>
     </div>
-    <section class="page-section">
-      <div class="album py-5 bg-light">
+    <section>
+      <div class=" py-5  bg-light">
         <div class="container">
           <div class="row">
             <div
-              class="card-body col-md-4 p-4 card mb-4 shadow-sm"
+              class=" col-sm-4  "
               v-for="recepie in recepies"
               :key="recepie.id"
             >
-              <recepie-card
-                :id="recepie.id"
-                :title="recepie.title"
-                :description="recepie.description"
-                :category="recepie.category"
-              />
+              <div class=" card p-4 mb-4 shadow-sm " style="height: 40em ;">
+                <recepie-card
+                  :id="recepie.id"
+                  :title="recepie.title"
+                  :description="recepie.description"
+                  :category="recepie.category"
+                />
+              </div>
             </div>
           </div>
         </div>

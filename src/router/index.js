@@ -4,6 +4,7 @@ import Home from "../views/Home1.vue";
 
 const homeindex = () => import("@/views/index.vue");
 const Login = () => import("@/views/login.vue");
+const Registro = () => import("@/views/registro.vue");
 const CursoDetails = () => import("@/views/Cursos.vue");
 
 Vue.use(VueRouter);
@@ -18,6 +19,11 @@ const routes = [
     path: "/logUser/log",
     name: "LoginUser",
     component: Login
+  },
+  {
+    path: "/user/registro",
+    name: "Registro",
+    component: Registro
   },
   {
     path: "/home",

@@ -40,7 +40,7 @@
               </router-link>
             </li>
             <li class="nav-item mx-0 mx-lg-1">
-              <router-link to="/users/signin" class="btn btn-outline-primary"
+              <router-link to="/user/registro" class="btn btn-outline-primary"
                 >Registrarse
               </router-link>
             </li>

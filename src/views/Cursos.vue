@@ -1,14 +1,15 @@
 <template>
-  <div>
-    <div class="container text-left">
+  <div class="container">
+    <div class="text-left mb-3">
       <router-link to="/" class="btn btn-primary">Inscribir Curso</router-link>
     </div>
 
-    <div class="container text-justify col-md-7">
-      <h1>{{ recepieSelected.title }}</h1>
-      <br />
-      <p>{{ recepieSelected.content }}</p>
-      <small class="text-muted">{{ recepieSelected.category }}</small>
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">{{ recepieSelected.title }}</h5>
+        <p class="card-text text-justify">{{ recepieSelected.content }}</p>
+        <small class="text-muted">{{ recepieSelected.category }}</small>
+      </div>
     </div>
   </div>
 </template>
