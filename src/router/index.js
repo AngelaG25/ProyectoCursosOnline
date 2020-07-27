@@ -7,6 +7,9 @@ const Login = () => import("@/views/login.vue");
 const Registro = () => import("@/views/registro.vue");
 const CursoDetails = () => import("@/views/Cursos.vue");
 
+const About = () => import("@/views/About.vue");
+const Login1 = () => import("@/views/login.vue");
+
 Vue.use(VueRouter);
 
 const routes = [
@@ -16,13 +19,23 @@ const routes = [
     component: homeindex
   },
   {
+    path: "/about",
+    name: "about",
+    component: About
+  },
+  {
     path: "/logUser/log",
     name: "LoginUser",
     component: Login
   },
   {
-    path: "/user/registro",
-    name: "Registro",
+    path: "/login",
+    name: "login",
+    component: Login1
+  },
+  {
+    path: "/registro",
+    name: "registro",
     component: Registro
   },
   {

@@ -1,7 +1,6 @@
 <template>
   <!-- barra de navegacion-->
-  <div>
-    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+  <!-- <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
       <a class="navbar-brand" href="#">Navbar</a>
       <button
         class="navbar-toggler"
@@ -57,8 +56,9 @@
           </button>
         </form>
       </div>
-    </nav>
+    </nav> -->
     <!-- muestra de los cursos disponibles para el usuarios-->
+<div>
     <div class="jumbotron">
       <div class="container">
         <h1 class="display-3">Cursos online</h1>

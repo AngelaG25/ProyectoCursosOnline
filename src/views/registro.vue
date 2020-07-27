@@ -8,7 +8,7 @@
         height="100"
       />
       <div class="container">
-        <h1 class="h3 mb-3 font-weight-normal">Registro de Estudiantes</h1>
+        <h1 class="h4 mb-3 font-weight-normal">Registro de Estudiantes</h1>
 
         <div class="col-md-12 mb-3">
           <label for="firstName" class="sr-only">Nombre</label>
@@ -79,3 +79,8 @@
     </form>
   </div>
 </template>
+<script>
+export default {
+  name: "Registro"
+};
+</script>

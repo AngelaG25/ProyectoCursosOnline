@@ -1,9 +1,20 @@
 <template>
   <div id="app">
-    <div id="nav"></div>
+    <div id="Nav"></div>
+    <Nav />
+    <hr />
     <router-view />
   </div>
 </template>
+
+<script>
+import Nav from "@/components/Nav.vue";
+export default {
+  components: {
+    Nav
+  }
+};
+</script>
 
 <style>
 #app {

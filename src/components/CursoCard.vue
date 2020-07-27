@@ -1,6 +1,5 @@
 <template>
   <!-- Example row of columns -->
-
   <div>
     <picture>
       <img src="../assets/img/portfolio/unnamed.png" width="80%" />

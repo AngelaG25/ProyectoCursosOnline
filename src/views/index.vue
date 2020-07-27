@@ -1,6 +1,6 @@
 <template>
   <div>
-    <nav
+    <!-- <nav
       class="navbar navbar-expand-lg bg-dark text-uppercase fixed-top"
       id="mainNav"
     >
@@ -47,7 +47,7 @@
           </ul>
         </div>
       </div>
-    </nav>
+    </nav> -->
 
     <!-- Masthead-->
     <header class="masthead bg-primary text-white p-5">
