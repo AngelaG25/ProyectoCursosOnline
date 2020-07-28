@@ -9,7 +9,7 @@ const CursoDetails = () => import("@/views/Cursos.vue");
 
 const About = () => import("@/views/About.vue");
 const Login1 = () => import("@/views/login.vue");
-
+//const Home = () => import("@/views/Home1.vue");
 Vue.use(VueRouter);
 
 const routes = [
@@ -33,6 +33,11 @@ const routes = [
     name: "login",
     component: Login1
   },
+  // {
+  //   path: "/Cursos",
+  //   name: "CursoDetails",
+  //   component: CursoDetails
+  // },
   {
     path: "/registro",
     name: "registro",

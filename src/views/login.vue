@@ -16,9 +16,9 @@
           id="inputEmail"
           class="form-control"
           placeholder="Correo"
-          required
           autofocus
         />
+        <!--required-->
       </div>
       <div class="col-md-12 mb-3">
         <label for="inputPassword" class="sr-only">Contraseña</label>
@@ -27,20 +27,29 @@
           id="inputPassword"
           class="form-control"
           placeholder="Contraseña"
-          required
         />
+        <!--required-->
       </div>
       <div class="checkbox mb-3">
         <label>
           <input type="checkbox" value="remember-me" /> Permanecer conectado
         </label>
       </div>
-      <button class="btn btn-lg btn-primary btn-block" type="submit">
+      <div>
+        <router-link to="/home" class="btn btn-outline-primary"
+          >Inicio</router-link
+        >
+      </div>
+      <!--<button
+        @click="sendToHome()"
+        class="btn btn-lg btn-primary btn-block"
+        type="submit"
+      
         Inicio
-      </button>
-      <DIV class="alert alert-info"
-        >Recuerda que debes iniciar sesión con tu correo
-      </DIV>
+      </button>-->
+      <div class="alert alert-info">
+        Recuerda que debes iniciar sesión con tu correo
+      </div>
 
       <P class="mt-5 mb-3 text-muted">© 2020</P>
     </form>
@@ -49,6 +58,12 @@
 
 <script>
 export default {
-  name: "login"
+  name: "login",
+  methods: {
+    sendToHome: function() {
+      //alert("Pasar a principal");
+      this.$router.push({ name: "/home" });
+    }
+  }
 };
 </script>
