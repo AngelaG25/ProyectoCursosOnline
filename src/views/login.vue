@@ -36,7 +36,7 @@
         </label>
       </div>
       <div>
-        <router-link to="/home" class="btn btn-outline-primary"
+        <router-link to="/home" class="btn  btn-primary col-3"
           >Inicio</router-link
         >
       </div>
@@ -47,7 +47,7 @@
       
         Inicio
       </button>-->
-      <div class="alert alert-info">
+      <div class="alert alert-info mt-2">
         Recuerda que debes iniciar sesión con tu correo
       </div>
 
