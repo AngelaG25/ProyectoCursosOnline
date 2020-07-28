@@ -4,7 +4,15 @@
     <Nav />
     <hr />
     <router-view />
+    <br/>
+    <div>
+     <div class="bg-secondary py-4 text-center text-white">
+      <div class="container">
+        <small>Copyright © 2020</small>
+      </div>
+    </div>
   </div>
+</div>
 </template>
 
 <script>
@@ -23,18 +31,5 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-}
-
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
 }
 </style>
