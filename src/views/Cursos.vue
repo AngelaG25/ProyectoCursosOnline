@@ -1,16 +1,24 @@
 <template>
-  <div class="container">
-    <div class="col-lg-4 mr-auto">
-      <picture>
-        <img src="../assets/img/cloud.jpg" />
+<div>
+  <picture>
+    <br />
+    <br />
+        <img src="../assets/img/portada.jpg" width="100%" />
       </picture>
-    </div>
+   <div class="py-5 bg-light">
+  <div class="container">
+    
+    <div class="card">
+      <div class="card-body">
     <div class="container text-justify col-md-10">
       <br/>
       <h1>{{ recepieSelected.title }}</h1>
       <br />
       <p>{{ recepieSelected.content }}</p>
       <small class="text-muted">{{ recepieSelected.category }}</small>
+    </div>
+    </div>
+    </div>
     </div>
 <br/>
   <div class="center">
@@ -20,6 +28,7 @@
     
   </div>
  </div>  
+ </div>
 </template>
 
 <script>
