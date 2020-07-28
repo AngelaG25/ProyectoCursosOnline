@@ -1,6 +1,10 @@
 <template>
-  <!-- barra de navegacion-->
+ 
   <div>
+    <div>
+       <!-- barra de navegacion-->
+        <router-link class="btn btn-primary btn-lg text-white" to="/">LogOut</router-link>
+  </div>
     <!-- muestra de los cursos disponibles para el usuarios-->
     <div class="jumbotron">
       <div class="container">

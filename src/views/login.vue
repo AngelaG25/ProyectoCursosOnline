@@ -11,10 +11,11 @@
 
       <h1 class="h3 mb-3 font-weight-normal">Inicio de Sesión</h1>
       <div class="col-md-12 mb-3">
-        <label for="inputEmail" class="sr-only">Correo</label>
+        <label for="email" class="sr-only">Correo</label>
         <input
           type="email"
-          id="inputEmail"
+          id="email" 
+          v-model="email"
           class="form-control"
           placeholder="Correo"
           autofocus
@@ -22,10 +23,11 @@
         <!--required-->
       </div>
       <div class="col-md-12 mb-3">
-        <label for="inputPassword" class="sr-only">Contraseña</label>
+        <label for="password" class="sr-only">Contraseña</label>
         <input
           type="password"
-          id="inputPassword"
+          id="password" 
+          v-model="password"
           class="form-control"
           placeholder="Contraseña"
         />
@@ -37,17 +39,16 @@
         </label>
       </div>
       <div>
-        <router-link to="/loginCurso" class="btn  btn-primary col-3"
-          >Inicio</router-link
-        >
-      </div>
-      <!--<button
-        @click="sendToHome()"
+        <button
+        @click.prevent="authenticate"
         class="btn btn-lg btn-primary btn-block"
-        type="submit"
-      
+        type="submit">
         Inicio
-      </button>-->
+      </button>
+        <!-- <router-link to="/loginCurso" class="btn  btn-primary col-3"
+          >Inicio</router-link> -->
+      </div>
+      
       <div class="alert alert-info mt-2">
         Recuerda que debes iniciar sesión con tu correo
       </div>
@@ -60,9 +61,19 @@
 <script>
 export default {
   name: "login",
+  data() {
+    return {
+      email: "",
+      password: ""
+    };
+  },
   methods: {
-    sendToHome: function() {
-      //alert("Pasar a principal");
+    authenticate() {
+      if (this.email != "example@email.com" || this.password != "1234") {
+        return;
+      }
+      // loguear al usuario y redirigir a la pagina principal.
+      this.$store.commit("setUser", { email: this.email });
       this.$router.push({ name: "/loginCurso" });
     }
   }

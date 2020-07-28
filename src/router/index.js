@@ -1,9 +1,5 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-
-//import Home from "../views/Home1.vue";
-//import Home from "../views/Home.vue";
-//import UserDetails from "@/views/details.vue";
 import loginCurso from "../views/loginCurso.vue";
 
 
@@ -11,11 +7,9 @@ const homeindex = () => import("@/views/index.vue");
 const Login = () => import("@/views/login.vue");
 const Registro = () => import("@/views/registro.vue");
 const CursoDetails = () => import("@/views/Cursos.vue");
-//const  UserLogin= () => import("@/views/login.vue");
 
 const About = () => import("@/views/About.vue");
-//const Login1 = () => import("@/views/login.vue");
-//const Home = () => import("@/views/Home1.vue");
+
 
 Vue.use(VueRouter);
 
@@ -34,6 +28,9 @@ const routes = [
     path: "/logUser/log",
     name: "LoginUser",
     component: Login,
+    meta: {
+      requiresAuth: false,
+    },
   },
   // {
   //   path: "/Cursos",
@@ -54,12 +51,18 @@ const routes = [
     path: "/loginCurso",
     name: "loginCurso",
     component: loginCurso,
+    meta: {
+      requiresAuth: true,
+    },
   },
   {
     path: "/cursos/:id",
     name: "RecepieContent",
     props: true,
-    component: CursoDetails
+    component: CursoDetails,
+    meta: {
+      requiresAuth: true,
+    },
   },
 
 ];
