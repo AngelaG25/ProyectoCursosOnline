@@ -4,15 +4,7 @@
     <Nav />
     <hr />
     <router-view />
-    <br/>
-    <div>
-     <div class="bg-secondary py-4 text-center text-white">
-      <div class="container">
-        <small>Copyright © 2020</small>
-      </div>
-    </div>
   </div>
-</div>
 </template>
 
 <script>

@@ -1,4 +1,4 @@
-<template>
+<!--<template>
   <!-- <barra de navegacion-->
 
   <!-- <div>
@@ -59,7 +59,7 @@
         </form>
       </div>
     </nav> -->
-  <!-- muestra de los cursos disponibles para el usuarios-->
+  <!-- muestra de los cursos disponibles para el usuarios
   <div>
     <div class="jumbotron">
       <div class="container">

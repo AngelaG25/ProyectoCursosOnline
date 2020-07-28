@@ -1,4 +1,4 @@
-<template>
+<!--<template>
   <div class="container">
     <table class="table">
       <thead class="thead-dark">
@@ -25,7 +25,7 @@
             <td>{{ user.firstName }}</td>
             <td>{{ user.lastName }}</td>
             <td>@mdo</td>
-          </router-link>-->
+          </router-link>
 
           <router-link :to="getRoute(user)">
             <th scope="row">{{ user.id }}</th>

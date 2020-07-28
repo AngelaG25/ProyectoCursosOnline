@@ -21,7 +21,7 @@
     <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
         <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-                <router-link class="nav-link" to="/login">Login</router-link>                
+                <router-link class="nav-link" to="/logUser/log">Login</router-link>                
             </li>
             <li class="nav-item">
                 <router-link class="nav-link" to="/registro">Register</router-link>

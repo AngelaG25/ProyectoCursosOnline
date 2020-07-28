@@ -1,11 +1,6 @@
 <template>
   <!-- Example row of columns -->
-<<<<<<< HEAD
-  <div>
-    <picture>
-      <img src="../assets/img/portfolio/unnamed.png" width="80%" />
-    </picture>
-=======
+  
  <div>
     <picture>
       <img src="../assets/img/unnamed.png" width="80%" />
@@ -14,7 +9,7 @@
         <img src="../assets/img/certificado.png" width="10%" />
     <strong > Incluye Certificación</strong>
      </div>
->>>>>>> angela
+
     <div class=" card-body">
       <h2 class="card-text">{{ title }}</h2>
       <p class="card-text text-justify">{{ description }}</p>

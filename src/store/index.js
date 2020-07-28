@@ -5,22 +5,22 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    user: null,
-    favorites: [],
+    // user: null,
+    // favorites: [],
   },
   mutations: {
-    setUser: (state, payload) => {
-      state.user = payload;
-    },
+    // setUser: (state, payload) => {
+    //   state.user = payload;
+    // },
   },
   getters: {
-    isAuthenticated(state) {
-      return state.user != null;
-    },
+    // isAuthenticated(state) {
+    //   return state.user != null;
+    // },
 
-    favoritesCount(state) {
-      return state.favorites.length;
-    },
+    // favoritesCount(state) {
+    //   return state.favorites.length;
+    // },
   },
   actions: {},
   modules: {},
