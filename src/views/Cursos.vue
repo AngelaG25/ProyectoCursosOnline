@@ -20,8 +20,6 @@
 =======
 <div>
   <picture>
-    <br />
-    <br />
         <img src="../assets/img/portada.jpg" width="100%" />
       </picture>
    <div class="py-5 bg-light">
