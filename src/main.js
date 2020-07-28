@@ -5,6 +5,8 @@ import store from "./store";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap";
+//import "./components/login.js";
+//import "https:/unpkg.com/axios/dist/axios.min.js";
 
 Vue.config.productionTip = false;
 
