@@ -1,71 +1,112 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-
-//import Home from "../views/Home1.vue";
-//import Home from "../views/Home.vue";
-//import UserDetails from "@/views/details.vue";
 import loginCurso from "../views/loginCurso.vue";
+import firebase from "../firebase/firebase-setup";
 
 
 const homeindex = () => import("@/views/index.vue");
+
 const Login = () => import("@/views/login.vue");
 const Registro = () => import("@/views/registro.vue");
 const CursoDetails = () => import("@/views/Cursos.vue");
-//const  UserLogin= () => import("@/views/login.vue");
 
 const About = () => import("@/views/About.vue");
-//const Login1 = () => import("@/views/login.vue");
-//const Home = () => import("@/views/Home1.vue");
+
 
 Vue.use(VueRouter);
 
-const routes = [
+const router = new VueRouter({
+  routes: [
   {
     path: "/",
     name: "HIndex",
-    component: homeindex
+    component: homeindex,
+    meta: {
+      requiresGuest: true
+    }
   },
   {
     path: "/about",
     name: "about",
-    component: About
+    component: About,
+    meta: {
+      requiresGuest: true
+    }
   },
   {
     path: "/logUser/log",
     name: "LoginUser",
     component: Login,
+    meta: {
+      requiresGuest: true
+    }
   },
-  // {
-  //   path: "/Cursos",
-  //   name: "CursoDetails",
-  //   component: CursoDetails
-  // },
+  
   {
     path: "/registro",
     name: "registro",
-    component: Registro
+    component: Registro,
+    meta: {
+      requiresGuest: true
+    }
   },
-  // {
-  //   path: "/home",
-  //   name: "Home",
-  //   component: Home
-  // },
+  
   {
     path: "/loginCurso",
     name: "loginCurso",
     component: loginCurso,
+    meta: {
+      requiresAuth: true,
+    },
   },
   {
     path: "/cursos/:id",
     name: "RecepieContent",
     props: true,
-    component: CursoDetails
+    component: CursoDetails,
+    meta: {
+      requiresAuth: true,
+    },
   },
 
-];
-
-const router = new VueRouter({
-  routes
+]
+});
+  
+// Nav Guard
+router.beforeEach((to, from, next) => {
+  // Check for requiresAuth guard
+  if (to.matched.some(record => record.meta.requiresAuth)) {
+    // Check if NO logged user
+    if (!firebase.auth().currentUser) {
+      // Go to login
+      next({
+        path: '/logUser/log',
+        query: {
+          redirect: to.fullPath
+        }
+      });
+    } else {
+      // Proceed to route
+      next();
+    }
+  } else if (to.matched.some(record => record.meta.requiresGuest)) {
+    // Check if NO logged user
+    if (firebase.auth().currentUser) {
+      // Go to login
+      next({
+        path: '/loginCurso',
+        query: {
+          redirect: to.fullPath
+        }
+      });
+    } else {
+      // Proceed to route
+      next();
+    }
+  } else {
+    // Proceed to route
+    next();
+  }
 });
 
 export default router;

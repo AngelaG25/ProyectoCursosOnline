@@ -10,7 +10,7 @@
       <div class="container">
         <h1 class="h4 mb-3 font-weight-normal">Registro de Estudiantes</h1>
 
-        <div class="col-md-12 mb-3">
+        <!-- <div class="col-md-12 mb-3">
           <label for="firstName" class="sr-only">Nombre</label>
           <input
             type="text"
@@ -39,16 +39,17 @@
           <div class="invalid-feedback">
             Valid last name is required.
           </div>
-        </div>
+        </div>-->
 
         <div class="col-md-12 mb-3">
           <label for="email" class="sr-only"
             >Correo <span class="text-muted"></span
           ></label>
           <input
+          v-model="email"  
             type="email"
             class="form-control"
-            id="email"
+            id="email" 
             placeholder="Correo"
           />
           <div class="invalid-feedback">
@@ -59,9 +60,10 @@
         <div class="col-md-12 mb-3">
           <label for="inputPassword" class="sr-only">Contraseña</label>
           <input
+           v-model="password"
             type="password"
             class="form-control"
-            id="inputPassword"
+            id="password"
             placeholder="Contraseña"
             required
           />
@@ -71,7 +73,7 @@
         </div>
 
         <hr class="col-md-10 mb-3" />
-        <button class="btn btn-primary btn-lg btn-block" type="submit">
+        <button v-on:click="Registro" class="btn btn-primary btn-lg btn-block" type="submit" >
           Registrar
         </button>
       </div>
@@ -79,8 +81,38 @@
     </form>
   </div>
 </template>
+
 <script>
+
+import firebase from "../firebase/firebase-setup"
+
 export default {
-  name: "Registro"
+
+  name: "Registro",
+  data:function () {
+    return{
+     email: '',
+     password: ''
+    };
+  },
+    methods: {
+      Registro: function(e) {
+      firebase
+        .auth()
+        .createUserWithEmailAndPassword(this.email, this.password)
+        .then(
+          user => {
+            // console.log(user);
+            alert(`Account Created for ${user.email}`);
+            this.$router.push("/logUser/log");
+          },
+          err => {
+            alert(err.message);
+          }
+        );
+      e.preventDefault();
+    }
+  }
+
 };
 </script>
