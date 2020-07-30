@@ -17,11 +17,10 @@ export default new Vuex.Store({
     // isAuthenticated(state) {
     //   return state.user != null;
     // },
-
     // favoritesCount(state) {
     //   return state.favorites.length;
     // },
   },
   actions: {},
-  modules: {},
+  modules: {}
 });

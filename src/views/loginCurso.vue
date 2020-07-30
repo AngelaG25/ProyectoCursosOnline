@@ -12,11 +12,12 @@
         </p>
         <p>
           <a class="btn btn-primary btn-lg" href="#" role="button"
-            >Learn more &raquo;</a>
+            >Learn more &raquo;</a
+          >
         </p>
       </div>
     </div>
-     <section>
+    <section>
       <div class=" py-5  bg-light">
         <div class="container">
           <div class="row">
@@ -48,15 +49,13 @@ export default {
   name: "loginCurso",
   data() {
     return {
-      recepies: recepiesList,
+      recepies: recepiesList
     };
   },
   components: {
-    "recepie-card": cardRecepie,
-  },
-  
+    "recepie-card": cardRecepie
+  }
 };
 </script>
 
-<style scoped>
-</style>
+<style scoped></style>

@@ -1,14 +1,14 @@
 <template>
   <!-- Example row of columns -->
-  
- <div>
+
+  <div>
     <picture>
       <img src="../assets/img/unnamed.png" width="80%" />
     </picture>
     <div class="py-1 bg-info text-white">
-        <img src="../assets/img/certificado.png" width="10%" />
-    <strong > Incluye Certificación</strong>
-     </div>
+      <img src="../assets/img/certificado.png" width="10%" />
+      <strong> Incluye Certificación</strong>
+    </div>
 
     <div class=" card-body">
       <h2 class="card-text">{{ title }}</h2>

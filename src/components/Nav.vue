@@ -1,46 +1,63 @@
-<template lang="es">
-<div>
-<nav class="navbar navbar-expand-md navbar-dark bg-dark">
-    <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
+<template>
+  <div>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark ">
+      <div class="container-fluid">
         <img
           src="../assets/img/portfolio/logo.png"
           alt="Inicio: Aprendo en Casa"
+          aria-label="Inicio: Aprendo en Casa"
         />
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <!--<a class="nav-link" href="#">Left</a>-->
+        <button
+          class="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold bg-primary text-white rounded"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarResponsive"
+          aria-controls="navbarResponsive"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          Menu
+          <i class="fas fa-bars"></i>
+        </button>
+        <div class="navbar-collapse collapse " id="navbarResponsive">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <router-link class="nav-link active" to="/">Home</router-link>
             </li>
             <li class="nav-item">
-                <router-link class="nav-link active" to="/">Home</router-link>
+              <router-link class="nav-link" to="/about">About</router-link>
+            </li>
+          </ul>
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <router-link class="nav-link" to="/loginCurso"
+                >Dashboard</router-link
+              >
             </li>
             <li class="nav-item">
-                <router-link class="nav-link" to="/about">About</router-link>
-            </li>
-        </ul>
-    </div>    
-    <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
-        <ul class="navbar-nav ml-auto">
-          
-          <li class="nav-item">
-            <router-link class="nav-link" to="/loginCurso">Dashboard</router-link>
-          </li>
-            <li class="nav-item">
-                <router-link class="nav-link" to="/logUser/log">Login</router-link>                
+              <router-link class="nav-link" to="/logUser/log"
+                >Login</router-link
+              >
             </li>
             <li class="nav-item">
-                <router-link class="nav-link" to="/registro">Register</router-link>
+              <router-link class="nav-link" to="/registro"
+                >Register</router-link
+              >
             </li>
             <li class="nav-item">
-                <button v-on:click="logout" class="btn btn-secondary">LogOut</button>
+              <button v-on:click="logout" class="btn nav-link">
+                LogOut
+              </button>
             </li>
-        </ul>
-    </div>
-</nav>
-</div>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </div>
 </template>
 
 <script>
-import firebase from "../firebase/firebase-setup"
+import firebase from "../firebase/firebase-setup";
 
 export default {
   name: "Nav",
@@ -56,14 +73,14 @@ export default {
   //     this.isLoggedIn = true;
   //     this.currentUser = firebase.auth().currentUser.email;
   //   }
- // },
+  // },
   methods: {
     logout: function() {
       firebase
         .auth()
         .signOut()
         .then(() => {
-          this.$router.push('/logUser/log');
+          this.$router.push("/logUser/log");
         });
     }
   }
@@ -75,51 +92,3 @@ export default {
   padding: 5px;
 }
 </style>
-
-<!-- <div>
-    <nav class="navbar navbar-expand-md navbar-dark  bg-dark">
-      <!--fixed-top-
-      <a class="navbar-brand" href="#"></a>
-                  <img
-          src="../assets/img/portfolio/logo.png"
-          alt="Inicio: Aprendo en Casa"
-          aria-label="Inicio: Aprendo en Casa"
-        />
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-toggle="collapse"
-        data-target="#navbarsExampleDefault"
-        aria-controls="navbarsExampleDefault"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-        <ul class="navbar-nav mr-5">          
-          <li class="nav-item active">
-            <!--<a class="nav-link" href="#"
-              >Home <span class="sr-only">(current)</span></a
-            >--
-            <router-link class="nav-link active" to="/">Home</router-link>
-          </li>
-          <li class="nav-item">
-            <router-link class="nav-link" to="/about">About</router-link>
-            <!--<a class="nav-link" href="#">Link</a>--
-          </li>
-          <div class="nav right-align">
-            <li class="nav-item right-align" >
-              <router-link class="nav-link" to="/login">Login</router-link>
-              <!--<a class="nav-link disabled text-right" href="#">Inicio de Sesion</a>--
-            </li>
-            <li class="nav-item" >
-              <router-link class="nav-link" to="/registro">Register</router-link>
-              <!--<a class="nav-link disabled text-right" href="#">Inicio de Sesion</a>--
-            </li>
-          </div>
-        </ul>
-      </div>
-    </nav>
-</div> -->

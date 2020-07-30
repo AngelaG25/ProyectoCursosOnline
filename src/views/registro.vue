@@ -46,10 +46,10 @@
             >Correo <span class="text-muted"></span
           ></label>
           <input
-          v-model="email"  
+            v-model="email"
             type="email"
             class="form-control"
-            id="email" 
+            id="email"
             placeholder="Correo"
           />
           <div class="invalid-feedback">
@@ -60,7 +60,7 @@
         <div class="col-md-12 mb-3">
           <label for="inputPassword" class="sr-only">Contraseña</label>
           <input
-           v-model="password"
+            v-model="password"
             type="password"
             class="form-control"
             id="password"
@@ -73,7 +73,11 @@
         </div>
 
         <hr class="col-md-10 mb-3" />
-        <button v-on:click="Registro" class="btn btn-primary btn-lg btn-block" type="submit" >
+        <button
+          v-on:click="Registro"
+          class="btn btn-primary btn-lg btn-block"
+          type="submit"
+        >
           Registrar
         </button>
       </div>
@@ -83,20 +87,18 @@
 </template>
 
 <script>
-
-import firebase from "../firebase/firebase-setup"
+import firebase from "../firebase/firebase-setup";
 
 export default {
-
   name: "Registro",
-  data:function () {
-    return{
-     email: '',
-     password: ''
+  data: function() {
+    return {
+      email: "",
+      password: ""
     };
   },
-    methods: {
-      Registro: function(e) {
+  methods: {
+    Registro: function(e) {
       firebase
         .auth()
         .createUserWithEmailAndPassword(this.email, this.password)
@@ -113,6 +115,5 @@ export default {
       e.preventDefault();
     }
   }
-
 };
 </script>
