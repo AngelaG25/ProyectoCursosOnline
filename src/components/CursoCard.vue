@@ -19,7 +19,7 @@
             >Explorar</router-link
           >
         </div>
-        <small class="text-muted">{{ category }}</small>
+        <!-- <small class="text-muted">{{ category }}</small>-->
       </div>
     </div>
   </div>

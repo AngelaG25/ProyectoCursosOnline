@@ -1,6 +1,6 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import loginCurso from "../views/loginCurso.vue";
+import LoginCurso from "../views/loginCurso.vue";
 import firebase from "../firebase/firebase-setup";
 
 const homeindex = () => import("@/views/index.vue");
@@ -8,8 +8,10 @@ const homeindex = () => import("@/views/index.vue");
 const Login = () => import("@/views/login.vue");
 const Registro = () => import("@/views/registro.vue");
 const CursoDetails = () => import("@/views/Cursos.vue");
+//const AddCurso = () => import("@/views/AddCurso.vue");
 
 const About = () => import("@/views/About.vue");
+const crearcurso = () => import("@/views/CrearCurso.vue");
 
 Vue.use(VueRouter);
 
@@ -32,8 +34,8 @@ const router = new VueRouter({
       }
     },
     {
-      path: "/logUser/log",
-      name: "LoginUser",
+      path: "/login",
+      name: "login",
       component: Login,
       meta: {
         requiresGuest: true
@@ -52,7 +54,7 @@ const router = new VueRouter({
     {
       path: "/loginCurso",
       name: "loginCurso",
-      component: loginCurso,
+      component: LoginCurso,
       meta: {
         requiresAuth: true
       }
@@ -65,10 +67,23 @@ const router = new VueRouter({
       meta: {
         requiresAuth: true
       }
+    },
+    // {
+    //   path: "/addcurso",
+    //   name: "addcurso",
+    //   // props: true,
+    //   component: AddCurso
+    // },
+    {
+      path: "/crearcurso",
+      name: "crearcurso",
+      // props: true,
+      component: crearcurso
     }
   ]
 });
 
+// validaciones de navegacion
 // Nav Guard
 router.beforeEach((to, from, next) => {
   // Check for requiresAuth guard
@@ -77,7 +92,7 @@ router.beforeEach((to, from, next) => {
     if (!firebase.auth().currentUser) {
       // Go to login
       next({
-        path: "/logUser/log",
+        path: "/login",
         query: {
           redirect: to.fullPath
         }

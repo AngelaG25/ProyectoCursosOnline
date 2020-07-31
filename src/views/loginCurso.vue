@@ -44,7 +44,8 @@
 
 <script>
 import cardRecepie from "@/components/CursoCard.vue";
-import recepiesList from "@/assets/vistacursos.json";
+//import recepiesList from "@/assets/vistacursos.json";
+import recepiesList from "@/firebase/firebase-setup.js";
 export default {
   name: "loginCurso",
   data() {
