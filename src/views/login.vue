@@ -42,7 +42,7 @@
       <!-- <router-link to="/loginCurso" class="btn  btn-primary col-3"
         >Inicio</router-link
       > -->
-      <button v-on:click="login" class="btn  btn-primary col-3" type="submit" >
+      <button v-on:click="Login" class="btn  btn-primary col-3" type="submit" >
           Inicio
         </button>
 
@@ -76,14 +76,16 @@ export default {
       password: ''
     };
   },
+
+  // acceso a usuario registrado
   methods: {
-    login: function(e) {
+    Login: function(e) {
       firebase
         .auth()
         .signInWithEmailAndPassword(this.email, this.password)
         .then(
           user => {
-            alert(`You are logged in as ${user.email}`);
+            alert(`Bienvenido:  ${user.email}`);
              this.$router.push('/loginCurso');
           },
           err => {

@@ -88,7 +88,7 @@ import firebase from "../firebase/firebase-setup"
 
 export default {
 
-  name: "Registro",
+  name: "registro",
   data:function () {
     return{
      email: '',
@@ -96,15 +96,14 @@ export default {
     };
   },
     methods: {
+      //creacion del usurario en la base de datos firebase
       Registro: function(e) {
       firebase
-        .auth()
-        .createUserWithEmailAndPassword(this.email, this.password)
-        .then(
-          user => {
+      .auth().createUserWithEmailAndPassword(this.email, this.password)
+        .then(user => {
             // console.log(user);
-            alert(`Account Created for ${user.email}`);
-            this.$router.push("/logUser/log");
+            alert(`Cuenta creada para ${user.email}`);
+             this.$router.push('/login');
           },
           err => {
             alert(err.message);

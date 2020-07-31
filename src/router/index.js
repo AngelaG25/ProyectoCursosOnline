@@ -1,6 +1,6 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import loginCurso from "../views/loginCurso.vue";
+import LoginCurso from "../views/loginCurso.vue";
 import firebase from "../firebase/firebase-setup";
 
 
@@ -34,8 +34,8 @@ const router = new VueRouter({
     }
   },
   {
-    path: "/logUser/log",
-    name: "LoginUser",
+    path: "/login",
+    name: "login",
     component: Login,
     meta: {
       requiresGuest: true
@@ -54,10 +54,10 @@ const router = new VueRouter({
   {
     path: "/loginCurso",
     name: "loginCurso",
-    component: loginCurso,
+    component: LoginCurso,
     meta: {
-      requiresAuth: true,
-    },
+      requiresAuth: true
+    }
   },
   {
     path: "/cursos/:id",
@@ -65,13 +65,14 @@ const router = new VueRouter({
     props: true,
     component: CursoDetails,
     meta: {
-      requiresAuth: true,
-    },
+      requiresAuth: true
+    }
   },
 
 ]
 });
   
+// validaciones de navegacion
 // Nav Guard
 router.beforeEach((to, from, next) => {
   // Check for requiresAuth guard
@@ -80,7 +81,7 @@ router.beforeEach((to, from, next) => {
     if (!firebase.auth().currentUser) {
       // Go to login
       next({
-        path: '/logUser/log',
+        path: '/login',
         query: {
           redirect: to.fullPath
         }

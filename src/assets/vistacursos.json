@@ -5,7 +5,7 @@
       "description": "Acerca de este curso: ¿Sabes qué beneficios aporta el uso de la tecnología Cloud Computing a un proyecto? Descubre a lo largo de este curso gratuito cómo transformar un negocio e innovar dentro de tu empresa a la vez que reduces sus costes. Además, aprende cómo tener acceso a tu información en cualquier dispositivo y de forma segura.",
       "content": 
       "El mundo del software está en constante cambio y evolución. La computación en la nube democratiza el acceso a recursos de software de nivel internacional, pues es una aplicación de software que atiende a diversos clientes. La multilocación es lo que diferencia la computación en la nube de la simple tercerización y de modelos de proveedores de servicios de aplicaciones más antiguos.Ahora, las pequeñas empresas tienen la capacidad de dominar el poder de la tecnología avanzada de manera escalable. La computación en la nube ofrece a los individuos y a las empresas de todos los tamaños la capacidad de un pool de recursos de computación con buen mantenimiento, seguro, de fácil acceso y bajo demanda, como servidores, almacenamiento de datos y solución de aplicaciones. Eso proporciona a las empresas mayor flexibilidad en relación a sus datos e informaciones, que se pueden acceder en cualquier lugar y hora, siendo esencial para empresas con sedes alrededor del mundo o en distintos ambientes de trabajo. Con un mínimo de gestión, todos los elementos de software de la computación en la nube pueden ser dimensionados bajo demanda, usted solo necesita conexión a Internet.",
-      "category": "📚 Modulo: 10      🕛 Horas: 60"
+      "category": "📚 Modulo: 9      🕛 Horas: 60"
     },
     {
       "id": 2,
@@ -20,7 +20,7 @@
       "title": "Desarrollo de Apps Móviles",
       "description": "Acerca de este curso: Aprende las habilidades y conceptos básicos para crear aplicaciones para dispositivos móviles. Este curso te presenta los principios esenciales que deben inspirar la creación de estas aplicaciones, y así enfocar bien su diseño y programación desde el principio.",
       "content": "El desarrollo de aplicaciones móviles es similar al desarrollo de aplicaciones web, y tiene sus raíces en el desarrollo de software más tradicional. Una diferencia fundamental, sin embargo, es que las aplicaciones (apps) móviles a menudo se escriben específicamente para aprovechar las características únicas que ofrece un dispositivo móvil en particular. Por ejemplo, una aplicación para juegos podría escribirse para aprovechar el acelerómetro del iPhone. Una forma de asegurar que las aplicaciones muestren un rendimiento óptimo en un dispositivo determinado es desarrollar la aplicación (app) de forma nativa en ese dispositivo. Esto significa que, a un nivel muy bajo, el código se escribe específicamente para el procesador de un dispositivo particular. Cuando una app necesita ejecutarse en varios sistemas operativos, sin embargo, hay poco –si es que hay alguno– código que puede ser reutilizado desde el desarrollo inicial. La aplicación debe ser esencialmente reescrita para cada dispositivo específico.",
-      "category": "📚 Modulo: 8      🕛 Horas: 40"
+      "category": "📚 Modulo: 9     🕛 Horas: 60"
     },
     {
       "id": 4,
