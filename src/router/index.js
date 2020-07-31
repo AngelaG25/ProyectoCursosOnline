@@ -9,9 +9,9 @@ const homeindex = () => import("@/views/index.vue");
 const Login = () => import("@/views/login.vue");
 const Registro = () => import("@/views/registro.vue");
 const CursoDetails = () => import("@/views/Cursos.vue");
+const AddCurso = () => import("@/views/AddCurso.vue");
 
 const About = () => import("@/views/About.vue");
-
 
 Vue.use(VueRouter);
 
@@ -68,7 +68,12 @@ const router = new VueRouter({
       requiresAuth: true
     }
   },
-
+  {
+    path: "/addcurso",
+    name: "addcurso",
+   // props: true,
+    component: AddCurso,
+  }
 ]
 });
   

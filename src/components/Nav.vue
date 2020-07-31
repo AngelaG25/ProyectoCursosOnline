@@ -49,21 +49,22 @@ export default {
     return {
       isLoggedIn: false,
       currentUser: false
-    }
+    };
   },
   // created() {
   //   if (firebase.auth().currentUser) {
   //     this.isLoggedIn = true;
   //     this.currentUser = firebase.auth().currentUser.email;
   //   }
- // },
+  // },
   methods: {
     logout: function() {
       firebase
         .auth()
         .signOut()
         .then(() => {
-          this.$router.push('/login');
+          console.log("Se ha cerrado la sesión del usuario.");
+          this.$router.push("/login");
         });
     }
   }

@@ -30,6 +30,10 @@
         </ul>
       </div>
     </div>
+
+    <div>
+      <router-link class="nav-link" to="/addcurso">Agregar Curso</router-link>
+    </div>
   </div>
 </template>
 <script>
