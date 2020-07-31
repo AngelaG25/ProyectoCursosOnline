@@ -1,6 +1,6 @@
 <template>
   <div class="container text-center  col-lg-3 ">
-    <form class="form-signin ">
+    <form class="form-signin " @submit.prevent="registro">
       <img
         src="../assets/img/portfolio/Mineduc-1024x850.jpg"
         alt=""
@@ -10,12 +10,13 @@
       <div class="container">
         <h1 class="h4 mb-3 font-weight-normal">Registro de Estudiantes</h1>
 
-        <!-- <div class="col-md-12 mb-3">
-          <label for="firstName" class="sr-only">Nombre</label>
+        <div class="col-md-12 mb-3">
+          <label for="name" class="sr-only">Nombre</label>
           <input
             type="text"
+            v-model="name"
             class="form-control"
-            id="firstName"
+            id="name"
             placeholder="Nombre"
             value=""
             required
@@ -25,21 +26,6 @@
             Valid first name is required.
           </div>
         </div>
-
-        <div class="col-md-12 mb-3">
-          <label for="lastName" class="sr-only">Apellidos</label>
-          <input
-            type="text"
-            class="form-control"
-            id="lastName"
-            placeholder="Apellidos"
-            value=""
-            required
-          />
-          <div class="invalid-feedback">
-            Valid last name is required.
-          </div>
-        </div>-->
 
         <div class="col-md-12 mb-3">
           <label for="email" class="sr-only"
@@ -74,46 +60,58 @@
 
         <hr class="col-md-10 mb-3" />
         <button
-          v-on:click="Registro"
+          v-on:click="registro"
           class="btn btn-primary btn-lg btn-block"
           type="submit"
         >
           Registrar
         </button>
       </div>
+      <div class="alert alert-warning" role="alert" v-if="error">
+          {{error}}
+      </div>
       <P class="mt-5 mb-3 text-muted">© 2020</P>
     </form>
+
   </div>
 </template>
 
 <script>
-import firebase from "../firebase/firebase-setup";
+import firebase from 'firebase'
+import '@/firebase/init'
 
 export default {
-  name: "Registro",
-  data: function() {
+ 
+  data() {
     return {
-      email: "",
-      password: ""
+      name: '',
+      email: '',
+      password: '',
+      error: ''
     };
   },
+
+   name: "Registro",
+
   methods: {
-    Registro: function(e) {
-      firebase
-        .auth()
-        .createUserWithEmailAndPassword(this.email, this.password)
-        .then(
-          user => {
-            // console.log(user);
-            alert(`Account Created for ${user.email}`);
-            this.$router.push("/logUser/log");
-          },
-          err => {
-            alert(err.message);
-          }
-        );
-      e.preventDefault();
+
+  
+    registro() {
+      this.error= ''
+      if (this.name && this.email && this.password){
+      firebase.auth().createUserWithEmailAndPassword(this.email, this.password)
+        .then(user => {
+            this.name=''
+            this.email=''
+            this.password=''
+            console.log(user)
+          }).catch(function(error) {
+            this.error = err.message
+          })
+      }else {
+        this.error='Todos los campos son requeridos'
+      }
     }
-  }
+  } 
 };
 </script>

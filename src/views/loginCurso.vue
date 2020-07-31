@@ -46,7 +46,7 @@
 import cardRecepie from "@/components/CursoCard.vue";
 import recepiesList from "@/assets/vistacursos.json";
 export default {
-  name: "loginCurso",
+  name: "Curso",
   data() {
     return {
       recepies: recepiesList

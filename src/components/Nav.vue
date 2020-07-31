@@ -36,18 +36,21 @@
             </li>
             <li class="nav-item">
               <router-link class="nav-link" to="/logUser/log"
-                >Login</router-link
+                >Iniciar Sesion</router-link
               >
             </li>
             <li class="nav-item">
               <router-link class="nav-link" to="/registro"
-                >Register</router-link
+                >Registrar</router-link
               >
             </li>
             <li class="nav-item">
-              <button v-on:click="logout" class="btn nav-link">
+              <button class="btn nav-link">
                 LogOut
               </button>
+              <!-- <button v-on:click="logout" class="btn nav-link">
+                LogOut
+              </button> -->
             </li>
           </ul>
         </div>
@@ -57,17 +60,17 @@
 </template>
 
 <script>
-import firebase from "../firebase/firebase-setup";
+// import firebase from "../firebase/firebase-setup";
 
 export default {
   name: "Nav",
 
-  data() {
-    return {
-      isLoggedIn: false,
-      currentUser: false
-    };
-  },
+  // data() {
+  //   return {
+  //     isLoggedIn: false,
+  //     currentUser: false
+  //   };
+  // },
   // created() {
   //   if (firebase.auth().currentUser) {
   //     this.isLoggedIn = true;
@@ -75,14 +78,14 @@ export default {
   //   }
   // },
   methods: {
-    logout: function() {
-      firebase
-        .auth()
-        .signOut()
-        .then(() => {
-          this.$router.push("/logUser/log");
-        });
-    }
+    // logout: function() {
+    //   firebase
+    //     .auth()
+    //     .signOut()
+    //     .then(() => {
+    //       this.$router.push("/logUser/log");
+    //     });
+    // }
   }
 };
 </script>

@@ -41,9 +41,12 @@
         <!-- <router-link to="/loginCurso" class="btn  btn-primary col-3"
         >Inicio</router-link
       > -->
-        <button v-on:click="login" class="btn  btn-primary col-3" type="submit">
+        <button class="btn  btn-primary col-3" type="submit">
           Inicio
         </button>
+         <!-- <button v-on:click="login" class="btn  btn-primary col-3" type="submit">
+          Inicio
+        </button> -->
       </div>
       <!--<button
         @click="sendToHome()"
@@ -62,39 +65,39 @@
 </template>
 
 <script>
-import firebase from "../firebase/firebase-setup";
+// import firebase from "../firebase/firebase-setup";
 
 export default {
-  name: "login",
+  name: "login"
 
-  data: function() {
-    return {
-      email: "",
-      password: ""
-    };
-  },
-  methods: {
-    login: function(e) {
-      firebase
-        .auth()
-        .signInWithEmailAndPassword(this.email, this.password)
-        .then(
-          user => {
-            alert(`You are logged in as ${user.email}`);
-            this.$router.push("/loginCurso");
-          },
-          err => {
-            alert(err.message);
-          }
-        );
-      e.preventDefault();
-    }
-  }
+  // data: function() {
+  //   return {
+  //     email: "",
+  //     password: ""
+  //   };
+  // },
   // methods: {
-  // sendToHome: function() {
-  //alert("Pasar a principal");
-  //  this.$router.push({ name: "/loginCurso" });
-  // }
-  // }
+  // //   login: function(e) {
+  // //     firebase
+  // //       .auth()
+  // //       .signInWithEmailAndPassword(this.email, this.password)
+  // //       .then(
+  // //         user => {
+  // //           alert(`You are logged in as ${user.email}`);
+  // //           this.$router.push("/loginCurso");
+  // //         },
+  // //         err => {
+  // //           alert(err.message);
+  // //         }
+  // //       );
+  // //     e.preventDefault();
+  // //   }
+  // // }
+  // // methods: {
+  // // sendToHome: function() {
+  // //alert("Pasar a principal");
+  // //  this.$router.push({ name: "/loginCurso" });
+  // // }
+  //  }
 };
 </script>
