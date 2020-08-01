@@ -99,7 +99,7 @@
 </template>
 <script>
 import firebase from "@/firebase/firebase-setup.js";
-// const storage = firebase.storage().ref();
+const storage = firebase.storage().ref();
 var db = firebase.firestore();
 
 export default {
@@ -113,31 +113,56 @@ export default {
     };
   },
   methods: {
-    addCourseToBD: function() {
+    async addCourseToBD() {
       try {
-        db.collection("Cursos")
-          .add({
-            Title: this.Title,
-            Description: this.Description,
-            Content: this.Content,
-            Category: this.Category,
-            userId: firebase.auth().currentUser.uid
-          })
-          .then(function(docRef) {
-            // console.log("Curso agregado con el Document ID: ", docRef.id);
-            alert("Curso agregado con el Document ID: " + docRef.id);
-          })
-          .catch(function(error) {
-            console.error("Error adding document: ", error);
-          });
-        // const imgFile = this.$refs.recepieImg.files[0];
+        // Estructura de documento que se va a guardar.
+        const recepie = {
+          Title: this.Title,
+          Description: this.Description,
+          Content: this.Content,
+          Category: this.Category,
+          userId: firebase.auth().currentUser.uid
+        };
+
+        // Guardar datos en la base de datos.
+        const data = await db.collection("Cursos").add(recepie);
+
+        // Obtener archivo de imagen del DOM.
+        const imgFile = this.$refs.recepieImg.files[0];
 
         // Guardar archivo en firebase Storage.
-        // await storage.child("images/" + data.id + ".jpg").put(imgFile);
+        await storage.child("images/" + data.id + ".jpg").put(imgFile);
+        alert(`Curso creado con exito`);
+        this.$router.push({ name: "loginCurso" });
       } catch (error) {
         console.log(error);
       }
     }
+    //  addCourseToBD: function() {
+    //   try {
+    //     db.collection("Cursos")
+    //       .add({
+    //         Title: this.Title,
+    //         Description: this.Description,
+    //         Content: this.Content,
+    //         Category: this.Category,
+    //         userId: firebase.auth().currentUser.uid
+    //       })
+    //       .then(function(docRef) {
+    //         // console.log("Curso agregado con el Document ID: ", docRef.id);
+    //         alert("Curso agregado con el Document ID: " + docRef.id);
+    //       })
+    //       .catch(function(error) {
+    //         console.error("Error adding document: ", error);
+    //       })
+    //     const imgFile = this.$refs.recepieImg.files[0];
+
+    //     // Guardar archivo en firebase Storage.
+    //     await storage.child("images/" + data.id + ".jpg").put(imgFile);
+    //   } catch (error) {
+    //     console.log(error);
+    //   }
+    // }
   }
 };
 </script>
