@@ -57,17 +57,7 @@ export default {
   },
 
   methods: {
-<<<<<<< HEAD
-    // async logOut() {
-    //   try {
-    //     await firebase.auth().signOut();
-    //     this.$router.push({ name: "login" });
-    //   } catch (error) {
-    //     console.log(error);
-    //   }
-    // },
 
-=======
     async logOut() {
       try {
         await firebase.auth().signOut();
@@ -76,7 +66,6 @@ export default {
         console.log(error);
       }
     },
->>>>>>> 3ed11417e884caaac222389fd6a5f48b25ea57e2
     async getRecepies() {
       try {
         // Obtener la lista de documentos.
@@ -101,10 +90,9 @@ export default {
       }
     }
   },
-
-  components: {
+   components: {
     "recepie-card": cardRecepie
-  }
+    }
 };
 </script>
 

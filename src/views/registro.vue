@@ -91,6 +91,7 @@
 <script>
 import firebase from "../firebase/firebase-setup";
 var db = firebase.firestore();
+
 export default {
   name: "Registro",
   data: function() {
@@ -108,13 +109,8 @@ export default {
         .createUserWithEmailAndPassword(this.email, this.password)
         .then(
           user => {
-<<<<<<< HEAD
            console.log(user.uid);
              alert(`Has creado tu cuenta: ` + this.email);
-=======
-            // console.log(user);
-            alert(`Cuenta creada para ${user.email}`);
->>>>>>> 3ed11417e884caaac222389fd6a5f48b25ea57e2
             this.$router.push("/logUser/log");
           },
           err => {
@@ -122,23 +118,19 @@ export default {
           }
         );
       e.preventDefault();
-<<<<<<< HEAD
-    },
 
-    created() {
-    let user = firebase.auth().currentUser;
-    this.email = user.email;
-  }
-
-=======
-
-      db.collection("UserLoginCursos").add({
+       db.collection("UserLoginCursos").add({
         firstName: this.firstName,
         lastName: this.lastName,
         UserEmail: firebase.auth().currentUser.uid
       });
-    }
->>>>>>> 3ed11417e884caaac222389fd6a5f48b25ea57e2
-  }
+
+       },
+    },
+    
+     created() {
+    let user = firebase.auth().currentUser;
+    this.email = user.email;
+  },
 };
 </script>

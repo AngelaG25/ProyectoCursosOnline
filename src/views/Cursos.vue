@@ -51,8 +51,7 @@ export default {
   data() {
     return {
       recepieSelected: {},
-      Listauser: [],
-      validacion:[]
+      Listauser: []
     };
 
   },

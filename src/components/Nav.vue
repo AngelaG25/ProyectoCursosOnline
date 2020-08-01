@@ -79,6 +79,7 @@ export default {
   //   }
   // },
   methods: {
+    
     logout: function() {
       firebase
         .auth()
