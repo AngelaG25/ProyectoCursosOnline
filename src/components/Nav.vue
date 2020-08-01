@@ -29,22 +29,22 @@
             </li>
           </ul>
           <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
+            <li v-if="!isLoggedIn" class="nav-item">
               <router-link class="nav-link" to="/loginCurso"
                 >Dashboard</router-link
               >
             </li>
-            <li class="nav-item">
+            <li v-if="!isLoggedIn" class="nav-item">
               <router-link class="nav-link" to="/logUser/log"
                 >Login</router-link
               >
             </li>
-            <li class="nav-item">
+            <li v-if="!isLoggedIn" class="nav-item">
               <router-link class="nav-link" to="/registro"
                 >Register</router-link
               >
             </li>
-            <li class="nav-item">
+            <li v-if="!isLoggedIn" class="nav-item">
               <button v-on:click="logout" class="btn nav-link">
                 LogOut
               </button>
@@ -68,12 +68,12 @@ export default {
       currentUser: false
     };
   },
-  // created() {
-  //   if (firebase.auth().currentUser) {
-  //     this.isLoggedIn = true;
-  //     this.currentUser = firebase.auth().currentUser.email;
-  //   }
-  // },
+   created() {
+    if (firebase.auth().currentUser) {
+      this.isLoggedIn = true;
+      this.currentUser = firebase.auth().currentUser.email;
+    }
+  },
   methods: {
     logout: function() {
       firebase

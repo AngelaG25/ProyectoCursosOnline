@@ -37,6 +37,7 @@
 import firebase from "@/firebase/firebase-setup.js";
 const db = firebase.firestore();
 const storage = firebase.storage().ref();
+
 export default {
   name: "CursoDetails",
   props: ["id"],

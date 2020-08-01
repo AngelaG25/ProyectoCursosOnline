@@ -41,9 +41,12 @@
         <!-- <router-link to="/loginCurso" class="btn  btn-primary col-3"
         >Inicio</router-link
       > -->
-        <button v-on:click="login" class="btn  btn-primary col-3" type="submit">
+        <button  @click.prevent="authenticate" class="btn  btn-primary col-3" type="submit">
           Inicio
         </button>
+        <!-- <button v-on:click="login"  @click.prevent="authenticate" class="btn  btn-primary col-3" type="submit">
+          Inicio
+        </button> -->
       </div>
       <!--<button
         @click="sendToHome()"
@@ -65,32 +68,50 @@
 import firebase from "../firebase/firebase-setup";
 
 export default {
+
   name: "login",
 
   data: function() {
     return {
       email: "",
-      password: ""
+      password: "",
+      id: ""
     };
   },
   methods: {
-    login: function(e) {
-      firebase
-        .auth()
-        .signInWithEmailAndPassword(this.email, this.password)
-        .then(
-          user => {
-            alert(`You are logged in as ${user.email}`);
-            console.log(user);
-            this.$router.push("/loginCurso");
-          },
-          err => {
-            alert(err.message);
-          }
-        );
-      e.preventDefault();
-    }
-  }
+    // login: function(e) {
+    //   firebase
+    //     .auth()
+    //     .signInWithEmailAndPassword(this.email, this.password)
+    //     .then(
+    //       user => {
+    //         alert(`Haz iniciado sesion con ${user.email}`);
+    //         console.log(user);
+    //         this.$router.push("/loginCurso");
+    //       },
+    //       err => {
+    //         alert(err.message);
+    //       }
+    //     );
+    //   e.preventDefault();
+    // }
+
+     async authenticate() {
+      try {
+        await firebase
+          .auth()
+          .signInWithEmailAndPassword(this.email, this.password);
+        // redirigir a la pagina principal.
+        this.$router.push({ name: "loginCurso" });
+      } catch (error) {
+        console.log(error);
+      }
+    },
+  },
+  created(){
+      let user = firebase.auth().currentUser;
+      this.id = user.uid;
+  },
   // methods: {
   // sendToHome: function() {
   //alert("Pasar a principal");

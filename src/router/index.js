@@ -28,10 +28,10 @@ const router = new VueRouter({
     {
       path: "/about",
       name: "about",
-      component: About
-      // meta: {
-      //   requiresGuest: true
-      // }
+      component: About,
+      meta: {
+        requiresAuth: true
+      }
     },
     {
       path: "/logUser/log",
@@ -78,7 +78,10 @@ const router = new VueRouter({
       path: "/crearcurso",
       name: "crearcurso",
       // props: true,
-      component: crearcurso
+      component: crearcurso,
+      meta: {
+        requiresAuth: true
+      }
     }
   ]
 });
@@ -92,7 +95,7 @@ router.beforeEach((to, from, next) => {
     if (!firebase.auth().currentUser) {
       // Go to login
       next({
-        path: "/login",
+        path: "/logUser/log",
         query: {
           redirect: to.fullPath
         }

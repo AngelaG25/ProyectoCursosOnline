@@ -2,6 +2,9 @@
   <!-- barra de navegacion-->
   <div>
     <!-- muestra de los cursos disponibles para el usuarios-->
+    <!-- <div class="container text-left">
+      <a href="#" class="btn btn-primary" @click.prevent="logOut">Cerrar sesión</a>
+       </div> -->
     <div class="jumbotron">
       <div class="container">
         <h1 class="display-3">Cursos online</h1>
@@ -47,6 +50,7 @@ import cardRecepie from "@/components/CursoCard.vue";
 import firebase from "@/firebase/firebase-setup.js";
 const db = firebase.firestore();
 
+
 export default {
   name: "loginCurso",
   data() {
@@ -91,7 +95,7 @@ export default {
       } catch (error) {
         console.log(error);
       }
-    }
+    },
   },
 
   components: {

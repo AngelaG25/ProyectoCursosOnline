@@ -149,7 +149,8 @@ export default {
             Title: this.Title,
             Description: this.Description,
             Content: this.Content,
-            Category: this.Category
+            Category: this.Category,
+            userId: firebase.auth().currentUser.uid
           })
           .then(function(docRef) {
             // console.log("Curso agregado con el Document ID: ", docRef.id);
