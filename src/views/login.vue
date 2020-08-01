@@ -80,8 +80,8 @@ export default {
         .signInWithEmailAndPassword(this.email, this.password)
         .then(
           user => {
-            alert(`You are logged in as ${user.email}`);
-            console.log(uid);
+            alert(`Has iniciado sesión como: ` + this.email);
+            console.log(user.uid);
             this.$router.push("/loginCurso");
           },
           err => {
@@ -90,7 +90,12 @@ export default {
         );
       e.preventDefault();
     }
+  },
+  created() {
+    let user = firebase.auth().currentUser;
+    this.email = user.email;
   }
+
   // methods: {
   // sendToHome: function() {
   //alert("Pasar a principal");

@@ -12,7 +12,7 @@
               <h1>{{ recepieSelected.Title }}</h1>
               <br />
               <p>{{ recepieSelected.Content }}</p>
-              <small class="text-muted">{{ recepieSelected.Category }}</small>
+              <small class="text-muted">{{ this.email }}</small>
             </div>
           </div>
         </div>
@@ -49,6 +49,8 @@ export default {
 
   created() {
     this.getRecepie();
+    let user = firebase.auth().currentUser;
+    this.email = user.email;
   },
 
   mounted() {

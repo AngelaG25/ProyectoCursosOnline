@@ -27,7 +27,11 @@
             <li class="nav-item">
               <router-link class="nav-link" to="/about">About</router-link>
             </li>
+            <li class="nav-item">
+              <small class="text-muted">{{ userId }}</small>
+            </li>
           </ul>
+
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
               <router-link class="nav-link" to="/loginCurso"

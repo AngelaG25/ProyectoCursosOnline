@@ -85,35 +85,6 @@
             <label class="custom-file-label" for="customFile">Imagen</label>
           </div>
         </div>
-        <!-- <div class="col-md-12 mb-3">
-          <label for="cursoContent" class="sr-only"
-            >ContenidoCurso <span class="text-muted"></span
-          ></label>
-          <input
-            type="email"
-            class="form-control"
-            id="cursoContent"
-            placeholder="Contenido"
-          />
-          <div class="invalid-feedback">
-            Please enter a valid data.
-          </div>
-        </div> -->
-
-        <!-- <div class="col-md-12 mb-3">
-          <label for="inputPassword" class="sr-only">Contraseña</label>
-          <input
-            type="password"
-            class="form-control"
-            id="inputPassword"
-            placeholder="Contraseña"
-            required
-          />
-          <div class="invalid-feedback">
-            Please enter your shipping address.
-          </div>
-        </div> -->
-
         <hr class="col-md-10 mb-3" />
         <button
           class="btn btn-primary btn-lg btn-block"
@@ -128,7 +99,7 @@
 </template>
 <script>
 import firebase from "@/firebase/firebase-setup.js";
-//const storage = firebase.storage().ref();
+// const storage = firebase.storage().ref();
 var db = firebase.firestore();
 
 export default {
@@ -149,7 +120,8 @@ export default {
             Title: this.Title,
             Description: this.Description,
             Content: this.Content,
-            Category: this.Category
+            Category: this.Category,
+            userId: firebase.auth().currentUser.uid
           })
           .then(function(docRef) {
             // console.log("Curso agregado con el Document ID: ", docRef.id);
@@ -158,6 +130,10 @@ export default {
           .catch(function(error) {
             console.error("Error adding document: ", error);
           });
+        // const imgFile = this.$refs.recepieImg.files[0];
+
+        // Guardar archivo en firebase Storage.
+        // await storage.child("images/" + data.id + ".jpg").put(imgFile);
       } catch (error) {
         console.log(error);
       }
