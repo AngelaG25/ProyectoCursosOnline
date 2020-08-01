@@ -10,9 +10,10 @@
       <div class="container">
         <h1 class="h4 mb-3 font-weight-normal">Registro de Estudiantes</h1>
 
-        <!-- <div class="col-md-12 mb-3">
+        <div class="col-md-12 mb-3">
           <label for="firstName" class="sr-only">Nombre</label>
           <input
+            v-model="firstName"
             type="text"
             class="form-control"
             id="firstName"
@@ -29,6 +30,7 @@
         <div class="col-md-12 mb-3">
           <label for="lastName" class="sr-only">Apellidos</label>
           <input
+            v-model="lastName"
             type="text"
             class="form-control"
             id="lastName"
@@ -39,7 +41,7 @@
           <div class="invalid-feedback">
             Valid last name is required.
           </div>
-        </div>-->
+        </div>
 
         <div class="col-md-12 mb-3">
           <label for="email" class="sr-only"
@@ -88,13 +90,15 @@
 
 <script>
 import firebase from "../firebase/firebase-setup";
-
+var db = firebase.firestore();
 export default {
   name: "Registro",
   data: function() {
     return {
       email: "",
-      password: ""
+      password: "",
+      firstName: "",
+      lastName: ""
     };
   },
   methods: {
@@ -105,7 +109,7 @@ export default {
         .then(
           user => {
             // console.log(user);
-            alert(`Account Created for ${user.email}`);
+            alert(`Cuenta creada para ${user.email}`);
             this.$router.push("/logUser/log");
           },
           err => {
@@ -113,6 +117,12 @@ export default {
           }
         );
       e.preventDefault();
+
+      db.collection("UserLoginCursos").add({
+        firstName: this.firstName,
+        lastName: this.lastName,
+        UserEmail: firebase.auth().currentUser.uid
+      });
     }
   }
 };

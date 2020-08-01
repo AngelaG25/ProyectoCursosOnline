@@ -8,11 +8,12 @@
         <div class="card">
           <div class="card-body">
             <div class="container text-justify col-md-10">
+              <img src id="image" width="50%" />
               <br />
               <h1>{{ recepieSelected.Title }}</h1>
               <br />
               <p>{{ recepieSelected.Content }}</p>
-              <small class="text-muted">{{ this.email }}</small>
+              <small class="text-muted">{{ recepieSelected.Category }}</small>
             </div>
           </div>
         </div>

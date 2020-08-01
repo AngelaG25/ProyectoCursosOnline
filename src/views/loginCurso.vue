@@ -26,7 +26,7 @@
               v-for="recepie in recepies"
               :key="recepie.id"
             >
-              <div class=" card p-4 mb-4 shadow-sm " style="height: 40em ;">
+              <div class=" card p-4 mb-4 shadow-sm " style="height: 32em ;">
                 <recepie-card
                   :id="recepie.id"
                   :Title="recepie.Title"
@@ -46,7 +46,6 @@
 import cardRecepie from "@/components/CursoCard.vue";
 import firebase from "@/firebase/firebase-setup.js";
 const db = firebase.firestore();
-
 export default {
   name: "loginCurso",
   data() {
@@ -68,7 +67,6 @@ export default {
         console.log(error);
       }
     },
-
     async getRecepies() {
       try {
         // Obtener la lista de documentos.
