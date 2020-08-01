@@ -77,7 +77,7 @@ router.beforeEach((to, from, next) => {
     if (!firebase.auth().currentUser) {
       // Go to login
       next({
-        path: "/logUser/log",
+        path: '/logUser/log',
         query: {
           redirect: to.fullPath
         }
@@ -91,7 +91,7 @@ router.beforeEach((to, from, next) => {
     if (firebase.auth().currentUser) {
       // Go to login
       next({
-        path: "/loginCurso",
+        path: '/loginCurso',
         query: {
           redirect: to.fullPath
         }
