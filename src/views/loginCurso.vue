@@ -29,9 +29,9 @@
               <div class=" card p-4 mb-4 shadow-sm " style="height: 40em ;">
                 <recepie-card
                   :id="recepie.id"
-                  :title="recepie.title"
-                  :description="recepie.description"
-                  :category="recepie.category"
+                  :Title="recepie.Title"
+                  :Description="recepie.Description"
+                  :Category="recepie.Category"
                 />
               </div>
             </div>
@@ -44,19 +44,71 @@
 
 <script>
 import cardRecepie from "@/components/CursoCard.vue";
-//import recepiesList from "@/assets/vistacursos.json";
-import recepiesList from "@/firebase/firebase-setup.js";
+import firebase from "@/firebase/firebase-setup.js";
+const db = firebase.firestore();
+
 export default {
   name: "loginCurso",
   data() {
     return {
-      recepies: recepiesList
+      recepies: []
     };
   },
+
+  created() {
+    this.getRecepies();
+  },
+
+  methods: {
+    async logOut() {
+      try {
+        await firebase.auth().signOut();
+        this.$router.push({ name: "login" });
+      } catch (error) {
+        console.log(error);
+      }
+    },
+
+    async getRecepies() {
+      try {
+        // Obtener la lista de documentos.
+        const result = await db
+          .collection("Cursos")
+          // .where("category", "==", "cocina italiana")
+          .get();
+
+        // Reiniciar arreglo de recetas.
+        this.recepies = [];
+
+        // Recorrer la lista para agregar la data
+        // al arreglo local de recetas.
+        result.forEach(doc => {
+          const r = doc.data();
+          r.id = doc.id;
+
+          this.recepies.push(r);
+        });
+      } catch (error) {
+        console.log(error);
+      }
+    }
+  },
+
   components: {
     "recepie-card": cardRecepie
   }
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+@import url("https://fonts.googleapis.com/css2?family=Fondamento&display=swap");
+
+.greet h1 {
+  font-family: "Fondamento", cursive;
+  font-size: 5em;
+}
+
+.recepie-container {
+  margin-bottom: 1em;
+}
+</style>

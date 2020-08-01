@@ -10,16 +10,16 @@
       <strong> Incluye Certificación</strong>
     </div>
 
-    <div class=" card-body">
-      <h2 class="card-text">{{ title }}</h2>
-      <p class="card-text text-justify">{{ description }}</p>
+    <div class=" card-body" id="cardCurso">
+      <h2 class="card-text">{{ Title }}</h2>
+      <p class="card-text text-justify">{{ Description }}</p>
       <div class="d-flex justify-content-between align-items-center">
         <div class="btn-group">
           <router-link :to="/cursos/ + id" class="btn btn-primary"
             >Explorar</router-link
           >
         </div>
-        <!-- <small class="text-muted">{{ category }}</small>-->
+        <small class="text-muted">{{ Category }}</small>
       </div>
     </div>
   </div>
@@ -28,6 +28,6 @@
 <script>
 export default {
   name: "RecepieCard",
-  props: ["title", "category", "description", "id"]
+  props: ["Title", "Content", "Description", "Category", "id"]
 };
 </script>

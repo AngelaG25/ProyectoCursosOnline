@@ -11,12 +11,12 @@
         <h1 class="h4 mb-3 font-weight-normal">Registro de Cursos</h1>
 
         <div class="col-md-12 mb-3">
-          <label for="title" class="sr-only">Título</label>
+          <label for="Title" class="sr-only">Título</label>
           <input
-            v-model="title"
+            v-model="Title"
             type="text"
             class="form-control"
-            id="title"
+            id="Title"
             placeholder="Título"
             value=""
             required
@@ -28,12 +28,12 @@
         </div>
 
         <div class="col-md-12 mb-3">
-          <label for="description" class="sr-only">Descripción</label>
+          <label for="Description" class="sr-only">Descripción</label>
           <input
             type="text"
             class="form-control"
-            id="description"
-            v-model="description"
+            id="Description"
+            v-model="Description"
             placeholder="Descripción del curso"
             value=""
             required
@@ -44,12 +44,12 @@
         </div>
 
         <div class="col-md-12 mb-3">
-          <label for="content" class="sr-only">Contenido</label>
+          <label for="Content" class="sr-only">Contenido</label>
           <input
-            v-model="content"
+            v-model="Content"
             type="text"
             class="form-control"
-            id="content"
+            id="Content"
             placeholder="Contenido del curso"
             value=""
             required
@@ -58,7 +58,33 @@
             Valid last name is required.
           </div>
         </div>
+        <div class="col-md-12 mb-3">
+          <label for="Category" class="sr-only">Categoria</label>
+          <input
+            v-model="Category"
+            type="text"
+            class="form-control"
+            id="Category"
+            placeholder="Categoria del curso"
+            value=""
+            required
+          />
+          <div class="invalid-feedback">
+            Valid last name is required.
+          </div>
+        </div>
 
+        <div class="col-md-12 mb-3">
+          <div class="custom-file">
+            <input
+              type="file"
+              class="custom-file-input"
+              id="customFile"
+              ref="recepieImg"
+            />
+            <label class="custom-file-label" for="customFile">Imagen</label>
+          </div>
+        </div>
         <!-- <div class="col-md-12 mb-3">
           <label for="cursoContent" class="sr-only"
             >ContenidoCurso <span class="text-muted"></span
@@ -109,58 +135,25 @@ export default {
   name: "CrearCurso",
   data() {
     return {
-      title: "",
-      description: "",
-      content: ""
+      Title: "",
+      Description: "",
+      Content: "",
+      Category: ""
     };
   },
   methods: {
-    //   addCourseToBD() {
-    //     try {
-    //       // Estructura de documento que se va a guardar.
-    //       const cursos = {
-    //         title: this.title,
-    //         description: this.description,
-    //         category: this.category,
-    //         content: this.content,
-    //         //userId: firebase.auth().currentUser.uid
-    //       };
-
-    //       // Guardar datos en la base de datos.
-    //       //const data = await db.collection("cursos").add(cursos);
-
-    //       db.collection("cursos").add(cursos);
-    //         // .then(function(docRef) {
-    //         //   console.log("Curso agregado con el Document ID: ", docRef.id);
-    //         // })
-    //         // .catch(function(error) {
-    //         //   console.error("Error adding document: ", error);
-    //         // });
-
-    //       // Obtener archivo de imagen del DOM.
-    //       //const imgFile = this.$refs.cursosImg.files[0];
-
-    //       // Guardar archivo en firebase Storage.
-    //       //await storage.child("images/" + data.id + ".jpg").put(imgFile);
-
-    //       this.$router.push({ name: "HIndex" });
-    //     } catch (error) {
-    //       console.log(error);
-    //     }
-    //   }
-    // }
-
-    // methods: {
     addCourseToBD: function() {
       try {
         db.collection("Cursos")
           .add({
-            title: this.title,
-            description: this.description,
-            content: this.content
+            Title: this.Title,
+            Description: this.Description,
+            Content: this.Content,
+            Category: this.Category
           })
           .then(function(docRef) {
-            console.log("Curso agregado con el Document ID: ", docRef.id);
+            // console.log("Curso agregado con el Document ID: ", docRef.id);
+            alert("Curso agregado con el Document ID: " + docRef.id);
           })
           .catch(function(error) {
             console.error("Error adding document: ", error);

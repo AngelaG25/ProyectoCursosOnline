@@ -20,35 +20,35 @@ const router = new VueRouter({
     {
       path: "/",
       name: "HIndex",
-      component: homeindex,
-      meta: {
-        requiresGuest: true
-      }
+      component: homeindex
+      // meta: {
+      //   requiresGuest: true
+      // }
     },
     {
       path: "/about",
       name: "about",
-      component: About,
-      meta: {
-        requiresGuest: true
-      }
+      component: About
+      // meta: {
+      //   requiresGuest: true
+      // }
     },
     {
-      path: "/login",
+      path: "/logUser/log",
       name: "login",
-      component: Login,
-      meta: {
-        requiresGuest: true
-      }
+      component: Login
+      // meta: {
+      //   requiresGuest: true
+      // }
     },
 
     {
       path: "/registro",
       name: "registro",
-      component: Registro,
-      meta: {
-        requiresGuest: true
-      }
+      component: Registro
+      // meta: {
+      //   requiresGuest: true
+      // }
     },
 
     {

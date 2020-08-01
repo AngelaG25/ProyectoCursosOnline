@@ -81,6 +81,7 @@ export default {
         .then(
           user => {
             alert(`You are logged in as ${user.email}`);
+            console.log(uid);
             this.$router.push("/loginCurso");
           },
           err => {
