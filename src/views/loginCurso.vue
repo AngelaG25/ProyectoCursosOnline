@@ -10,11 +10,9 @@
           negocio o carrera profesional. Aprende todo lo que necesites
           seleccionando módulos para explorar y aprender
         </p>
-        <p>
-          <a class="btn btn-primary btn-lg" href="#" role="button"
-            >Learn more &raquo;</a
-          >
-        </p>
+        <div>
+      <router-link  class="btn btn-primary py-2 px-3 mt-sm-0 ml-sm-2" to="/crearcurso">Agregar Curso</router-link>
+    </div>
       </div>
     </div>
     <section>
@@ -60,14 +58,14 @@ export default {
   },
 
   methods: {
-    async logOut() {
-      try {
-        await firebase.auth().signOut();
-        this.$router.push({ name: "login" });
-      } catch (error) {
-        console.log(error);
-      }
-    },
+    // async logOut() {
+    //   try {
+    //     await firebase.auth().signOut();
+    //     this.$router.push({ name: "login" });
+    //   } catch (error) {
+    //     console.log(error);
+    //   }
+    // },
 
     async getRecepies() {
       try {

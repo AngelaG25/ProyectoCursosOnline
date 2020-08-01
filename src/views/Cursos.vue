@@ -19,9 +19,12 @@
       </div>
       <br />
       <div class="center">
-        <router-link to="/" class="btn btn-primary py-2 px-3"
-          >Inscribir Curso</router-link
+         <button
+          class="btn btn-primary py-2 px-3"
+          @click=" adduserToBD()"
         >
+         Inscribir Curso
+        </button>
 
         <router-link
           to="/loginCurso"
@@ -34,17 +37,23 @@
 </template>
 
 <script>
+
 import firebase from "@/firebase/firebase-setup.js";
 const db = firebase.firestore();
 const storage = firebase.storage().ref();
+
 export default {
+ 
   name: "CursoDetails",
   props: ["id"],
 
   data() {
     return {
-      recepieSelected: {}
+      recepieSelected: {},
+      Listauser: [],
+      validacion:[]
     };
+
   },
 
   created() {
@@ -76,6 +85,40 @@ export default {
       } catch (error) {
         console.log(error);
       }
+    },
+
+//añadir usuarios al curso
+     async adduserToBD() {
+       
+
+      try {
+          // const cursosRef =db.child('cursos');
+          // cursosRef.orderByChild('Title');
+
+            const courseUser = {
+            userId: firebase.auth().currentUser.uid,
+            courseId: this.id
+            
+            };
+
+             db.collection("cursoRegistrado").add(courseUser);
+            //  if( courseUser.id == courseUser.id){
+              if(confirm('Estas seguro que deseas inscribir este curso?')) {
+                 alert("Usuario inscrito en el curso");
+                  this.$router.push("/loginCurso");
+                  }
+              // else
+              // alert("Este usuario ya esta inscrito en este curso");
+              // }
+
+          }catch(error) {
+            console.error("Error adding document: ", error);
+          };
+        // const imgFile = this.$refs.recepieImg.files[0];
+
+        // Guardar archivo en firebase Storage.
+        // await storage.child("images/" + data.id + ".jpg").put(imgFile);
+      
     }
   }
 };

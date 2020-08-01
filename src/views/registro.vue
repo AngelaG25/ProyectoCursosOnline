@@ -104,8 +104,8 @@ export default {
         .createUserWithEmailAndPassword(this.email, this.password)
         .then(
           user => {
-            // console.log(user);
-            alert(`Account Created for ${user.email}`);
+           console.log(user.uid);
+             alert(`Has creado tu cuenta: ` + this.email);
             this.$router.push("/logUser/log");
           },
           err => {
@@ -113,7 +113,13 @@ export default {
           }
         );
       e.preventDefault();
-    }
+    },
+
+    created() {
+    let user = firebase.auth().currentUser;
+    this.email = user.email;
+  }
+
   }
 };
 </script>

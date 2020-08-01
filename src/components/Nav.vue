@@ -86,7 +86,11 @@ export default {
         .then(() => {
           this.$router.push("/logUser/log");
         });
-    }
+    },
+       created() {
+    let user = firebase.auth().currentUser;
+    this.email = user.email;
+  }
   }
 };
 </script>
